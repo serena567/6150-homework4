@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Event & News - Vallejo Public Library</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+
+    <!-- Header and navigation for Event & News page -->
+    <header>
+        <h1>Vallejo Public Library - Events & News</h1>
+        <nav>
+            <ul class="navbar-container">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="book-catalog.html">Book Catalog</a></li>
+                <li><a href="loan-system.html">Borrowing System</a></li>
+                <li><a href="events&news.html">Event & News</a></li>
+                <li><a href="FAQs.html">FAQs</a></li>
+                <!-- 添加搜索框 -->
+                <li>
+                    <form action="#" method="GET" class="search-form">
+                        <input type="text" id="searchQuery" placeholder="Search Events..." class="search-input" onkeyup="searchNews()">
+                        <button type="submit" class="search-button">Search</button>
+                    </form>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main content for Events & News -->
+    <main>
+        <section id="events-news">
+            <h2>Latest news & Upcoming events</h2>
+
+            <div class="news-item" data-title="Latest news">
+                <h3 class="news-title"><a href="#">Latest news</a></h3>
+                <p class="news-description">This month, we've brought in some new books for the library. Check out the latest recommendations!</p>
+                <p class="news-date">Published on: January 29, 2025</p>
+                <a href="#" class="read-more">Read more</a>
+            </div>
+
+            <div class="news-item" data-title="Upcoming Library Events">
+                <h3 class="news-title"><a href="#">Upcoming Library Events</a></h3>
+                <p class="news-description">Next month, the library will host a special event. Everyone is welcome to join us!</p>
+                <p class="news-date">Published on: January 20, 2025</p>
+                <a href="#" class="read-more">Read more</a>
+            </div>
+
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>Contact Us: <a href="mailto:info@vallejolibrary.org">info@vallejolibrary.org</a></p>
+        <p>Vallejo Public Library, 456 Main St, Vallejo, CA 94590</p>
+        <p>Hours: Mon-Fri 9:00 AM - 6:00 PM | Sat 10:00 AM - 4:00 PM</p>
+    </footer>
+
+    <script>
+        // 模拟新闻数据（如果实际数据来自后台，你可以替换这个部分）
+        const newsItems = [
+            { title: "Latest news", description: "This month, we've brought in some new books for the library. Check out the latest recommendations!", date: "January 29, 2025" },
+            { title: "Upcoming Library Events", description: "Next month, the library will host a special event. Everyone is welcome to join us!", date: "January 20, 2025" }
+        ];
+
+        // 搜索功能
+        function searchNews() {
+            const query = document.getElementById('searchQuery').value.toLowerCase();
+            const newsItemsElements = document.querySelectorAll('.news-item');
+
+            newsItemsElements.forEach(item => {
+                const title = item.getAttribute('data-title').toLowerCase();
+                if (title.includes(query)) {
+                    item.style.display = ''; // 如果匹配，显示该新闻
+                } else {
+                    item.style.display = 'none'; // 如果不匹配，隐藏该新闻
+                }
+            });
+        }
+    </script>
+
+</body>
+</html>

@@ -8,69 +8,84 @@
     <link rel="stylesheet" href="styles/style.css"> <!-- Link to external CSS file -->
 </head>
 <body>
+    <!-- Header sign in-->
+    <div class="signin-container">
+        <h2>Sign In</h2>
+        <form action="/signin" method="POST">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" placeholder="Enter your username" required>
+    
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" placeholder="Enter your password" required>
+    
+            <button type="submit">Sign In</button>
+        </form>
+    </div>
 
-    <nav>
-        <ul class="navbar-container">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About Us</a></li>
-            <!-- Dropdown Menu for Book-Catalog -->
-            <li class="dropdown">
-                <a href="book-catalog.html">Book-Catalog</a>
-                <div class="dropdown-content">
-                    <a href="tech-books.html">Tech</a>
-                    <a href="art-books.html">Art</a>
-                    <a href="new-arrivals.html">New Arrivals</a>
-                    <a href="book-catalog.html">Browse All Books</a>
-                </div>
-            </li>
 
-            <!-- Dropdown Menu for Borrowing -->
-            <li class="dropdown">
-                <a href="loan-system.html">loan-system</a>
-                <div class="dropdown-content">
-                    <a href="borrowing-guide.html">Borrowing Guide</a>
-                    <a href="loan-system.html">Get Library Card</a>
-                </div>
-            </li>
 
-            <!-- Dropdown Menu for Event&News -->
-            <li class="dropdown">
-                <a href="events&news.html">Event&News</a>
-                <div class="dropdown-content">
-                    <a href="event.html">Event</a>
-                    <a href="news.html">News</a>
-                </div>
-            </li>
 
-            <!-- FAQ Section -->
-            <li class="dropdown">
-                <a href="FAQs.html">FAQs</a>
-                <div class="dropdown-content">
-                    <a href="FAQs.html">Any question? Email Us!</a>
-                </div>
-            </li>
-        </ul>
-    </nav>
-    <div class="library-name">
-        <h1>Vallejo Public Library</h1> <!-- Library Name -->
+
+    <!-- Header 部分，将图书馆名称和导航栏放在一起 -->
+    <header class="header-container">
+        <!-- 图书馆名称部分 -->
+        <div class="library-name">
+            <div class="library-part Vallejo">VALLEJO</div>
+            <div class="library-part public-library">PUBLIC-LIBRARY</div>
+        </div>
+
+        <!-- 导航栏部分 -->
+        <nav>
+            <ul class="navbar-container">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li class="dropdown">
+                    <a href="book-catalog.html">Book-Catalog</a>
+                    <div class="dropdown-content">
+                        <a href="tech-books.html">Tech</a>
+                        <a href="art-books.html">Art</a>
+                        <a href="new-arrivals.html">New Arrivals</a>
+                        <a href="book-catalog.html">Browse All Books</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="loan-system.html">loan-system</a>
+                    <div class="dropdown-content">
+                        <a href="borrowing-guide.html">Borrowing Guide</a>
+                        <a href="loan-system.html">Get Library Card</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="events&news.html">Event&News</a>
+                    <div class="dropdown-content">
+                        <a href="event.html">Event</a>
+                        <a href="news.html">News</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="FAQs.html">FAQs</a>
+                    <div class="dropdown-content">
+                        <a href="FAQs.html">Any question? Email Us!</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- 搜索框部分 -->
+    <div class="search-container">
         <form action="/search" method="GET">
             <input type="text" name="query" placeholder="Search for books..." class="search-input">
             <button type="submit" class="search-button">Search</button>
         </form>
     </div>
 
-    <!-- Header section, containing an image -->
-    <header>
-        <img src="images/1.jpg" alt="Vallejo Public Library" width="100%" height="auto">
-    </header>
-
-
-    <!-- Main content section -->
+    <!-- 主内容区域 -->
     <div class="content">
         <!-- This is where your page content will go -->
     </div>
 
-    <!-- Footer section -->
+    <!-- 底部部分 -->
     <footer>
         <p>Vallejo Public Library, 456 Main St, Vallejo, CA 94590</p>
         <p>Hours: Mon-Fri 9:00 AM - 6:00 PM | Sat 10:00 AM - 4:00 PM</p>
@@ -81,6 +96,10 @@
             <a href="https://instagram.com/VallejoLibrary">Instagram</a>
         </p>
     </footer>
+
+    <img src="images/2.jpg" alt="Vallejo Public Library" class="background-image2">
+    
+    <script src="scripts/signin.js"></script>
 
 </body>
 </html>

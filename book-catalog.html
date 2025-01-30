@@ -7,17 +7,24 @@
     <title>Book Catalog & Details - Vallejo Public Library</title>
     <link rel="stylesheet" href="styles/style.css">
 </head>
-<body>
+<body class="book-catalog-page">
 
 <header>
     <h1>Vallejo Public Library</h1>
     <nav>
-        <ul>
+        <ul class="navbar-container">
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About Us</a></li>
             <li><a href="book-catalog.html">Book Catalog</a></li>
             <li><a href="loan-system.html">Borrowing System</a></li>
             <li><a href="FAQs.html">FAQs</a></li>
+            <!-- 添加搜索框 -->
+            <li>
+                <form action="#" method="GET" class="search-form">
+                    <input type="text" id="searchQuery" placeholder="Search for books..." class="search-input" onkeyup="searchBooks()">
+                    <button type="submit" class="search-button">Search</button>
+                </form>
+            </li>
         </ul>
     </nav>
 </header>
@@ -25,6 +32,38 @@
 <main>
     <section id="book-catalog">
         <h2>Book Catalog</h2>
+
+        <div class="catalog-images">
+            <!-- Book 1 -->
+            <div class="catalog-item">
+                <img src="images/book1.png" alt="Alice's Adventures in Water-land" class="catalog-image">
+                <p class="book-title">Alice's Adventures in Water-land</p>
+                <button class="reserve-button" onclick="reserveBook(1)">Reserve</button>
+            </div>
+        
+            <!-- Book 2 -->
+            <div class="catalog-item">
+                <img src="images/book2.png" alt="Water Drops" class="catalog-image">
+                <p class="book-title">Water Drops</p>
+                <button class="reserve-button" onclick="reserveBook(2)">Reserve</button>
+            </div>
+        
+            <!-- Book 3 -->
+            <div class="catalog-item">
+                <img src="images/book3.png" alt="Water" class="catalog-image">
+                <p class="book-title">Water</p>
+                <button class="reserve-button" onclick="reserveBook(3)">Reserve</button>
+            </div>
+        </div>
+        
+
+
+
+    
+
+
+
+
         <ul id="book-list">
             <!-- List of books will be rendered here dynamically -->
         </ul>
@@ -46,27 +85,37 @@ const books = [
 ];
 
 // 渲染书籍目录和详情
-function renderBookCatalog() {
+function renderBookCatalog(filteredBooks = books) {
     const catalogContainer = document.getElementById('book-list');
     catalogContainer.innerHTML = '';
 
-    books.forEach(book => {
+    filteredBooks.forEach(book => {
         const bookItem = document.createElement('li');
-        
-        const bookTitle = document.createElement('a');
-        bookTitle.href = "#";
-        bookTitle.textContent = book.title;
-        bookTitle.onclick = function() {
-            renderBookDetail(book.id);
+        bookItem.style.marginBottom = '20px'; 
+        const reserveButton = document.createElement('button');
+        reserveButton.textContent = "Reserve";
+        reserveButton.onclick = function() {
+            reserveBook(book.id);
         };
+        bookItem.appendChild(reserveButton);  // Append reserve button
 
+catalogContainer.appendChild(bookItem);
+});
+}
+
+        
+        
         const bookDetailContainer = document.createElement('div');
         bookDetailContainer.id = `book-detail-${book.id}`;
         bookDetailContainer.classList.add('book-detail');
         bookDetailContainer.style.display = 'none';
+        const reserveButton = document.createElement('button');
+        reserveButton.textContent = "Reserve";
+        reserveButton.onclick = function() {
+            reserveBook(book.id);
+        };
 
-        bookItem.appendChild(bookTitle);
-        bookItem.appendChild(bookDetailContainer);
+        bookItem.appendChild(reserveButton);  // 只添加 Reserve 按钮
 
         catalogContainer.appendChild(bookItem);
     });
@@ -103,6 +152,13 @@ function reserveBook(id) {
     } else {
         alert(`Sorry, no copies of "${book.title}" are available for reservation.`);
     }
+}
+
+// 搜索功能
+function searchBooks() {
+    const query = document.getElementById('searchQuery').value.toLowerCase();
+    const filteredBooks = books.filter(book => book.title.toLowerCase().includes(query));
+    renderBookCatalog(filteredBooks); // 渲染过滤后的书籍目录
 }
 
 // 页面加载时渲染书籍目录
