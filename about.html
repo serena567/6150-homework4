@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> Vallejo Public Library</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+
+    <!-- Header and navigation for Event & News page -->
+        <nav>
+            <ul class="navbar-container">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="book-catalog.html">Book-Catalog</a></li>
+                <li><a href="loan-system.html">Loan-System</a></li>
+                <li><a href="events&news.html">Event & News</a></li>
+                <li><a href="FAQs.html">FAQs</a></li>
+                <!-- 添加搜索框 -->
+                <li>
+                    <form action="#" method="GET" class="search-form">
+                        <input type="text" id="searchQuery" placeholder="Search Events..." class="search-input" onkeyup="searchNews()">
+                        <button type="submit" class="search-button">Search</button>
+                    </form>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main content for Events & News -->
+    <main>
+        <section id="AboutUs">
+            <h2>About Us</h2>
+            <div class="AboutUs" data-title="OurHistory">
+                <p class="history-description">
+                    The origin of libraries dates back to ancient civilizations, where the earliest libraries were typically located within religious or academic institutions, used for storing and transmitting knowledge. Around 3000 BCE, the Sumerians of ancient Mesopotamia began recording information on clay tablets, creating some of the earliest libraries. The Library of Alexandria in ancient Egypt, established in the 3rd century BCE, became one of the world's foremost centers of knowledge, housing a vast collection of manuscripts and scrolls.
+                </p>
+                <p>
+                    In the Middle Ages, libraries became an integral part of religious institutions, especially within European monasteries, where handwritten books were preserved and passed down. With the advent of the Renaissance, libraries gradually opened up to a broader public, particularly in European universities and royal courts, where libraries began to become more accessible and public-oriented. In modern times, with the rise of the printing press and the expansion of public education, libraries became even more important. In the 19th century, with the emergence of public libraries, libraries became crucial platforms for people to access knowledge and promote social development. Today, libraries are not only places for storing books but also core spaces for information exchange, cultural transmission, and educational learning.
+                </p>
+                <a href="#" class="read-more">Read more</a>
+            </div>
+            
+        </section>
+        <!-- Example of News Section (Can be filled with actual event news) -->
+    <!-- Footer -->
+    <footer>
+        <p>Contact Us: <a href="mailto:info@vallejolibrary.org">info@vallejolibrary.org</a></p>
+        <p>Vallejo Public Library, 456 Main St, Vallejo, CA 94590</p>
+        <p>Hours: Mon-Fri 9:00 AM - 6:00 PM | Sat 10:00 AM - 4:00 PM</p>
+    </footer>
+
+    <script>
+        // Search function for events and news
+        function searchNews() {
+            const query = document.getElementById('searchQuery').value.toLowerCase();
+            const newsItems = document.querySelectorAll('.news-item');
+
+            newsItems.forEach(item => {
+                const title = item.querySelector('h3').textContent.toLowerCase();
+                if (title.includes(query)) {
+                    item.style.display = ''; // Show the news item if it matches
+                } else {
+                    item.style.display = 'none'; // Hide the news item if it doesn't match
+                }
+            });
+        }
+    </script>
+
+</body>
+</html>

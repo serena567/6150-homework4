@@ -6,77 +6,63 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Vallejo Public Library</title>
     <link rel="stylesheet" href="styles/style.css"> <!-- Link to external CSS file -->
+    <script src="scripts/signin.js" defer></script> <!-- Make sure JS is deferred -->
 </head>
 <body>
+
+    <!-- 导航栏部分 -->
+    <nav>
+        <ul class="navbar-container">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li class="dropdown">
+                <a href="book-catalog.html">Book-Catalog</a>
+                <div class="dropdown-content">
+                    <a href="tech-books.html">Tech</a>
+                    <a href="art-books.html">Art</a>
+                    <a href="new-arrivals.html">New Arrivals</a>
+                    <a href="book-catalog.html">Browse All Books</a>
+                </div>
+            </li>
+            <li class="dropdown">
+                <a href="loan-system.html">Loan-System</a>
+                <div class="dropdown-content">
+                    <a href="borrowing-guide.html">Borrowing Guide</a>
+                    <a href="loan-system.html">Get Library Card</a>
+                </div>
+            </li>
+            <li class="dropdown">
+                <a href="events&news.html">Events & News</a>
+                <div class="dropdown-content">
+                    <a href="event.html">Event</a>
+                    <a href="news.html">News</a>
+                </div>
+            </li>
+            <li class="dropdown">
+                <a href="FAQs.html">FAQs</a>
+                <div class="dropdown-content">
+                    <a href="FAQs.html">Any question? Email Us!</a>
+                </div>
+                <li>
+                    <form action="#" method="GET" class="search-form">
+                        <input type="text" id="searchQuery" placeholder="Search Events..." class="search-input" onkeyup="searchNews()">
+                        <button type="submit" class="search-button">Search</button>
+                    </form>
+                </li>
+            </li>
+        </ul>
+    </nav>
+
     <!-- Header sign in-->
     <div class="signin-container">
-        <h2>Sign In</h2>
         <form action="/signin" method="POST">
             <label for="username">Username</label>
             <input type="text" id="username" name="username" placeholder="Enter your username" required>
-    
+
             <label for="password">Password</label>
             <input type="password" id="password" name="password" placeholder="Enter your password" required>
-    
+
             <button type="submit">Sign In</button>
-        </form>
-    </div>
-
-
-
-
-
-    <!-- Header 部分，将图书馆名称和导航栏放在一起 -->
-    <header class="header-container">
-        <!-- 图书馆名称部分 -->
-        <div class="library-name">
-            <div class="library-part Vallejo">VALLEJO</div>
-            <div class="library-part public-library">PUBLIC-LIBRARY</div>
-        </div>
-
-        <!-- 导航栏部分 -->
-        <nav>
-            <ul class="navbar-container">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li class="dropdown">
-                    <a href="book-catalog.html">Book-Catalog</a>
-                    <div class="dropdown-content">
-                        <a href="tech-books.html">Tech</a>
-                        <a href="art-books.html">Art</a>
-                        <a href="new-arrivals.html">New Arrivals</a>
-                        <a href="book-catalog.html">Browse All Books</a>
-                    </div>
-                </li>
-                <li class="dropdown">
-                    <a href="loan-system.html">loan-system</a>
-                    <div class="dropdown-content">
-                        <a href="borrowing-guide.html">Borrowing Guide</a>
-                        <a href="loan-system.html">Get Library Card</a>
-                    </div>
-                </li>
-                <li class="dropdown">
-                    <a href="events&news.html">Event&News</a>
-                    <div class="dropdown-content">
-                        <a href="event.html">Event</a>
-                        <a href="news.html">News</a>
-                    </div>
-                </li>
-                <li class="dropdown">
-                    <a href="FAQs.html">FAQs</a>
-                    <div class="dropdown-content">
-                        <a href="FAQs.html">Any question? Email Us!</a>
-                    </div>
-                </li>
-            </ul>
-        </nav>
-    </header>
-
-    <!-- 搜索框部分 -->
-    <div class="search-container">
-        <form action="/search" method="GET">
-            <input type="text" name="query" placeholder="Search for books..." class="search-input">
-            <button type="submit" class="search-button">Search</button>
         </form>
     </div>
 
@@ -91,15 +77,32 @@
         <p>Hours: Mon-Fri 9:00 AM - 6:00 PM | Sat 10:00 AM - 4:00 PM</p>
         <p>Email: <a href="mailto:info@vallejolibrary.org">info@vallejolibrary.org</a></p>
         <p>Follow us on social media: 
-            <a href="https://facebook.com/VallejoLibrary">Facebook</a> | 
-            <a href="https://twitter.com/VallejoLibrary">Twitter</a> | 
-            <a href="https://instagram.com/VallejoLibrary">Instagram</a>
+            <a href="https://facebook.com/VallejoLibrary" target="_blank" rel="noopener noreferrer">Facebook</a> | 
+            <a href="https://twitter.com/VallejoLibrary" target="_blank" rel="noopener noreferrer">Twitter</a> | 
+            <a href="https://instagram.com/VallejoLibrary" target="_blank" rel="noopener noreferrer">Instagram</a>
         </p>
     </footer>
 
+    <!-- Background Image -->
     <img src="images/2.jpg" alt="Vallejo Public Library" class="background-image2">
-    
-    <script src="scripts/signin.js"></script>
 
+    <!-- Dropdown Menu JavaScript -->
+    <script>
+        // Get all dropdown elements
+        const dropdowns = document.querySelectorAll('.dropdown');
+
+        // Add mouseover and mouseout event listeners to each dropdown
+        dropdowns.forEach(dropdown => {
+            const dropdownContent = dropdown.querySelector('.dropdown-content');
+
+            dropdown.addEventListener('mouseover', () => {
+                dropdownContent.style.display = 'block'; // Show the dropdown content
+            });
+
+            dropdown.addEventListener('mouseout', () => {
+                dropdownContent.style.display = 'none'; // Hide the dropdown content
+            });
+        });
+    </script>
 </body>
 </html>

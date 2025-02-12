@@ -1,160 +1,95 @@
-/* Ensuring the html and body take up full height */
+/* Global Styles for Navbar */
 html, body {
     height: 100%;
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    background-image: url('images/2.jpg'); /* Background image */
-    background-size: cover;  /* Make sure the image covers the area without overflow */
-    background-position: center center; /* Center the background */
-    background-repeat: no-repeat; /* Prevent background image from repeating */
-    background-attachment: fixed; /* Fixed background */
-    color: white;
+    background-color: #f4f4f4;
+    color: #333;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    align-items: flex-start; /* Align items to the left */
+    align-items: flex-start;
 }
 
-/* Library name section */
-.library-name {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: left;    
-    background-color: white;
-    color: black;
-    padding: 10px;
-    text-align: left;
-    font-size: 0.5em;
-    width: 100%; /* Shrink the background */
-    height: 45px;
-    margin: 0 auto; /* Center the element */
-}
-.library-part {
-    font-size: 2em; /* Font size for the two parts of the title */
-    margin: 5px 0; /* Space between the two parts */
-}
-
-.vallejo {
-    font-weight: bold; /* Bold for the "Vallejo" part */
-}
-
-.public-library {
-    font-weight: normal; /* Normal weight for "Public Library" part */
-}
-
-/* Navigation styles */
+/* Navbar Styles */
 nav {
-    z-index: 1; /* 设置较低的层级，避免覆盖搜索框 */
+    z-index: 1;
 }
+
 .navbar-container {
     list-style-type: none;
     margin: 0;
     padding: 0;
-    background-color: rgb(31, 119, 187); /* Semi-transparent background */
+    background-color: rgb(31, 119, 187); /* Navbar background */
     display: flex;
-    justify-content: space-evenly;  /* Center-align the items */
-    align-items: center;
-    height: 60px;
+    justify-content: center; /* Center navbar items */
+    align-items: center; /* Vertically center the navbar items */
+    height: 80px;
     width: 100%;
     position: sticky;
+    top: 0;
+    font-size: 18px;
 }
 
+/* Navbar List Item */
 .navbar-container li {
-    margin: 0 20px;
+    margin: 0 3px; /* Space between navbar items */
 }
 
+/* Navbar Link Styles */
 .navbar-container a {
     color: white;
     text-decoration: none;
     font-size: 18px;
-    padding: 15px;
+    padding: 15px 20px;
     display: block;
+    text-align: center;
+    box-sizing: border-box;
 }
 
+/* Navbar Link Hover Effect */
 .navbar-container a:hover {
-    background-color: #007BFF;  /* Change background on hover */
+    background-color: #007BFF;  /* Change background color on hover */
     border-radius: 5px;
 }
 
-/* Search bar styles */
-.search-container {
-    display: flex;
-    justify-content: center;  /* 水平居中搜索框 */
-    align-items: center; /* 垂直居中 */
-    margin-top: 8px;
-    margin-bottom: 0px; /* 给搜索框和下面的内容加一些空间 */
-    z-index: 2;
-    width: 100%; /* Ensure full width for alignment */
+/* Header Styles */
+header {
+    text-align: center;
+    padding: 20px;
+    background-color: rgb(31, 119, 187); /* Background color for header */
+    color: white;
+    width: 100%;
 }
 
-.search-input {
-    padding: 10px;
-    font-size: 1.0em;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    width: 200px;
-    margin-right: 1px;
+h1 {
+    font-size: 2.5em;
+    margin: 0;
 }
 
-.search-button {
-    padding: 1px 1px;
-    font-size: 1em;
+/* Main Content */
+main {
+    padding: 20px;
+    flex-grow: 1;
+    width: 100%;
+}
+
+button {
+    padding: 10px 20px;
     background-color: rgb(31, 119, 187);
     color: white;
     border: none;
-    border-radius: 1px;
+    border-radius: 5px;
     cursor: pointer;
-    width: 80px; /* 缩小按钮的宽度 */
+    font-size: 1em;
 }
 
-.search-button:hover {
-    background-color: #0056b3;
+button:hover {
+    background-color: hwb(211 0% 0%);
 }
 
-/* Dropdown menu styles */
-/* 设置下拉菜单项的间距 */
-/* 隐藏下拉菜单 */
-.dropdown {
-    position: relative;  /* 需要这个设置让下拉菜单相对于父元素定位 */
-}
-
-/* 隐藏下拉菜单 */
-.dropdown-content {
-    display: none;  /* 默认隐藏下拉菜单 */
-    position: absolute;
-    background-color: white;  /* 半透明背景 */
-    min-width: 160px;
-    z-index: 1;
-}
-
-/* 当鼠标悬停在dropdown时显示下拉菜单 */
-.dropdown:hover .dropdown-content {
-    display: block;  /* 鼠标悬停时显示下拉菜单 */
-}
-
-/* 下拉菜单项样式 */
-.dropdown-content a {
-    padding: 10px 15px;  /* 增加项内边距 */
-    margin-bottom: 8px;   /* 设置项之间的间距 */
-    text-decoration: none;
-    color: black;  /* 设置文字颜色 */
-    display: block; /* 每个项占据一行 */
-}
-
-/* 鼠标悬停时下拉菜单项的样式 */
-.dropdown-content a:hover {
-    background-color: white#ddd;  /* 鼠标悬停时改变背景色 */
-    cursor: pointer;
-}
-
-
-
-
-
-
-/* Footer styling */
+/* Footer Styles */
 footer {
     background-color: rgba(0, 0, 0, 0.7);
     color: white;
@@ -175,174 +110,7 @@ footer a:hover {
     text-decoration: underline;
 }
 
-/* Header section for image */
-header img {
-    width: 100%;
-    height: auto;
-}
-
-h1, h2, h3 {
-    font-family: Arial, sans-serif;
-    color: white;
-}
-
-.background-image2 {
-    width: 100%;  /* Set the width of the image to 50% of the container */
-    height: auto; /* Maintain the aspect ratio */
-    margin-top: 0; /* Add a small space between the search form and the image */
-    display: block; /* Ensure the image is displayed as a block element */
-    margin-left: auto;
-    margin-right: auto;
-}
-
-/* Events and News Section Styles */
-#events-news {
-    background-color: white; /* Semi-transparent background */
-    padding: 40px;
-    margin-top: 40px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Adding subtle shadow */
-    width: 80%;
-    margin: 40px auto;
-    color: white;
-}
-
-#events-news h2 {
-    font-size: 2.5em;
-    text-align: center;
-    margin-bottom: 30px;
-}
-
-/* News Item Styles */
-.news-item {
-    background-color: white;
-    color: #333;
-    padding: 20px;
-    margin-bottom: 20px;
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.news-item:hover {
-    transform: translateY(-5px); /* Slight lift on hover */
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
-}
-
-.news-title {
-    font-size: 1.8em;
-    margin-bottom: 10px;
-    color: rgb(31, 119, 187);
-}
-
-.news-title a {
-    color: inherit;  /* Keep the same color as the parent */
-    text-decoration: none;
-}
-
-.news-title a:hover {
-    text-decoration: underline;
-}
-
-.news-date {
-    font-size: 1em;
-    color: #888;
-    margin-bottom: 15px;
-}
-
-.news-description {
-    font-size: 1.2em;
-    color: #444;
-    margin-bottom: 20px;
-}
-
-.read-more {
-    font-size: 1.2em;
-    color:rgb(31, 119, 187);
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.read-more:hover {
-    text-decoration: underline;
-}
-
-/* Ensuring the page scrolls, but header is fixed */
-body {
-    padding-top: 80px; /* To account for the fixed navbar */
-}
-
-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 10;
-}
-
-/* Sign In 表单的容器样式 */
-.error {
-    color: red;
-    font-size: 0.9em;
-    margin-top: 5px;
-}
-
-.signin-container {
-    background-color: #fff;
-    padding: 2px;
-    border-radius: 8px;
-    width: 150px;
-    margin-left: 2px;  /* 确保左边有一定的间距 */
-    margin-top: 0px;   /* 如果你希望表单距离顶部有一定的间距 */
-    position: relative;  /* 让它不受 flex 布局的影响 */
-    z-index: 2;
-}
-
-h2 {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-label {
-    display: block;
-    margin-bottom: 5px;
-    font-size: 14px;
-}
-
-input {
-    width: 80%;
-    padding: 10px;
-    margin-bottom: 1px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-size: 14px;
-}
-
-input::placeholder {
-    color: #aaa; /* Light gray color for placeholder text */
-}
-
-button {
-    width: 100%;
-    padding: 8px;
-    background-color: rgb(31, 119, 187);
-    color: white;
-    border: none;
-    border-radius: 4px;
-    font-size: 16px;
-    cursor: pointer;
-    width: auto;  /* 设置宽度为自动适应内容 */
-    font-size: 0.9em;  /* 调整字体大小 */
-}
-
-button:hover {
-    background-color: rgb(31, 119, 187)049;
-    cursor: pointer;
-}
-
-
-
-
+/* Catalog Images Section */
 .catalog-images {
     display: flex;
     justify-content: space-around;
@@ -350,20 +118,228 @@ button:hover {
 }
 
 .catalog-item {
-    text-align: center;  /* 让文本居中 */
-    position: relative;  /* 为了后续的绝对定位 */
+    text-align: center;
+    position: relative;
 }
 
 .catalog-image {
     width: 200px;
     height: 300px;
-    object-fit: cover;   /* 保证图片不会变形 */
-    border-radius: 8px;  /* 给图片添加圆角效果 */
+    object-fit: cover;
+    border-radius: 8px;
 }
 
 .book-title {
-    margin-top: 30px;    /* 给书名增加一点空隙 */
-    font-size: 16px;     /* 设置字体大小 */
-    color: #333;         /* 设置字体颜色 */
-    font-weight: bold;   /* 设置字体加粗 */
+    margin-top: 30px;
+    font-size: 16px;
+    color: #333;
+    font-weight: bold;
+}
+
+/* Mobile Version (max-width: 480px) */
+@media (max-width: 480px) {
+    .navbar-container {
+        flex-direction: column; /* Stack navbar items vertically */
+        align-items: center; /* Center align items */
+    }
+
+    .navbar-container li {
+        margin: 0; /* Space between items */
+        flex: 1;
+    }
+
+    .navbar-container a {
+        padding: 15px 20px;
+        display: block;
+        text-align: center;
+        width: 100%;  /* Make the anchor tag fill the parent */
+        height: 100%;  /* Make sure the anchor fills the height of the li */
+        box-sizing: border-box; 
+
+    }
+
+    h1 {
+        font-size: 1.8em;
+    }
+
+    button {
+        padding: 8px 16px;
+        font-size: 0em;
+    }
+}
+
+/* Tablet Version (min-width: 481px) and max-width: 768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+    .navbar-container {
+        flex-direction: row; /* Align navbar items horizontally */
+    }
+
+    .navbar-container li {
+        margin: 10px;
+    }
+
+    .navbar-container a {
+        padding: 14px;
+    }
+
+    button {
+        padding: 10px 18px;
+    }
+}
+
+/* Full-size Monitors (larger than 768px) */
+@media (min-width: 769px) {
+    .navbar-container {
+        justify-content: center; /* Center navbar items */
+    }
+
+    .navbar-container li {
+        margin: 0 20px;
+    }
+
+    .navbar-container a {
+        padding: 16px;
+    }
+
+    button {
+        padding: 12px 20px;
+        font-size: 1.2em;
+    }
+}
+* Navbar Dropdown Styles */
+.navbar-container .dropdown {
+    position: relative; /* Needed for dropdown to position correctly */
+}
+
+.navbar-container .dropdown-content {
+    display: none; /* Hide the dropdown by default */
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    font-size: 18px;
+}
+
+/* Show dropdown when hovering over the parent */
+.navbar-container .dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Dropdown items */
+.navbar-container .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Change color of dropdown items when hovered */
+.navbar-container .dropdown-content a:hover {
+    background-color: #ddd;
+    color: #007BFF; /* This can be your hover color */
+}
+
+/* Keep the main dropdown item (e.g., 'Book-Catalog') unchanged */
+.navbar-container .dropdown > a {
+    color: white;  /* Ensure the text color stays white */
+    text-decoration: none;
+    padding: 15px;
+    display: block;
+    text-align: center;
+    width: 100%;
+    letter-spacing: 4px;
+}
+
+/* Optional: Add hover effect on main dropdown item if needed */
+.navbar-container .dropdown > a:hover {
+    background-color: rgb(16, 95, 159); /* Change hover color of the main item */
+}
+
+/* 使用 Flexbox 居中图片 */
+.background-image-container {
+    display: flex;  /* 启用 Flexbox 布局 */
+    justify-content: center;  /* 水平居中 */
+    align-items: center;  /* 垂直居中 */
+    height: 100vh;  /* 使容器高度为视口高度，确保垂直居中 */
+}
+
+.background-image2 {
+    width: 100%;  /* 调整图片宽度 */
+    height: 50%;  /* 保持纵横比 */
+    object-fit: cover;  /* 确保图片不失真 */
+    text-align: center;
+}
+
+/* Navbar Styles */
+.navbar-container {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background-color: rgb(31, 119, 187); /* Navbar background */
+    display: flex;
+    justify-content: center; /* Center navbar items */
+    align-items: center; /* Vertically center the navbar items */
+    height: 60px;
+    width: 100%;
+    position: sticky;
+    top: 0;
+    font-size: 18px; /* Make sure font size is consistent */
+}
+
+/* Navbar List Item */
+.navbar-container li {
+    margin: 0 15px; /* Space between navbar items */
+}
+
+/* Navbar Link Styles */
+.navbar-container a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;  /* Consistent font size */
+    padding: 15px;
+    display: block;
+    text-align: center;
+    letter-spacing: 2px;  /* Optional: Space between letters */
+}
+
+/* Navbar Link Hover Effect */
+.navbar-container a:hover {
+    background-color: #007BFF;  /* Change background color on hover */
+    border-radius: 5px;
+}
+
+/* 第一段的行间距 */
+.history-description {
+    line-height: 1.6; /* 第一段行间距 */
+    margin-bottom: 20px; /* 第一段的底部边距 */
+    padding-left: 10px; /* 左侧内边距 */
+    padding-right: 10px; /* 右侧内边距 */
+}
+
+/* 第二段的行间距 */
+.AboutUs p {
+    line-height: 1.8; /* 第二段行间距，可以设置为不同的值 */
+    margin-bottom: 20px; /* 第二段的底部边距 */
+    padding-left: 10px; /* 左侧内边距 */
+    padding-right: 10px; /* 右侧内边距 */
+}
+/* 修改Sign In 标题的字体大小 */
+/* 修改输入框的字体大小 */
+.signin-container input {
+    font-size: 16px; /* 设置字体大小为16px */
+}
+
+/* 修改按钮的字体大小 */
+.signin-container button {
+    font-size: 12px; /* 设置按钮的字体大小为16px */
+}
+
+
+/* 给 signin-container 设置 flexbox 布局 */
+.signin-container {
+    display: flex;
+    flex-direction: column; /* 设置主轴为垂直方向 */
+    align-items: center; /* 居中对齐内容 */
+    padding: 20px; /* 内边距 */
 }

@@ -4,31 +4,78 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Loan System - Vallejo Public Library</title>
-    <link rel="stylesheet" href="styles/style.css">
+    <title>Vallejo Public Library</title>
+    <link rel="stylesheet" href="styles/style.css"> <!-- Link to external CSS file -->
+    <script src="scripts/signin.js" defer></script> <!-- Make sure JS is deferred -->
 </head>
 <body>
 
-<header>
-    <h1>Vallejo Public Library</h1>
+    <!-- 导航栏部分 -->
     <nav>
-        <ul>
+        <ul class="navbar-container">
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About Us</a></li>
-            <li><a href="book-catalog.html">Book Catalog</a></li>
-            <li><a href="loan-system.html">Borrowing System</a></li>
-            <li><a href="FAQs.html">FAQs</a></li>
+            <li class="dropdown">
+                <a href="book-catalog.html">Book-Catalog</a>
+                <div class="dropdown-content">
+                    <a href="tech-books.html">Tech</a>
+                    <a href="art-books.html">Art</a>
+                    <a href="new-arrivals.html">New Arrivals</a>
+                    <a href="book-catalog.html">Browse All Books</a>
+                </div>
+            </li>
+            <li class="dropdown">
+                <a href="loan-system.html">Loan-System</a>
+                <div class="dropdown-content">
+                    <a href="borrowing-guide.html">Borrowing Guide</a>
+                    <a href="loan-system.html">Get Library Card</a>
+                </div>
+            </li>
+            <li class="dropdown">
+                <a href="events&news.html">Events & News</a>
+                <div class="dropdown-content">
+                    <a href="event.html">Event</a>
+                    <a href="news.html">News</a>
+                </div>
+            </li>
+            <li class="dropdown">
+                <a href="FAQs.html">FAQs</a>
+                <div class="dropdown-content">
+                    <a href="FAQs.html">Any question? Email Us!</a>
+                </div>
+                <li>
+                    <form action="#" method="GET" class="search-form">
+                        <input type="text" id="searchQuery" placeholder="Search Events..." class="search-input" onkeyup="searchNews()">
+                        <button type="submit" class="search-button">Search</button>
+                    </form>
+                </li>
+            </li>
         </ul>
     </nav>
-</header>
+
+
 
 <main>
     <section id="loan-system">
         <h2>Loan System</h2>
-        <p><strong>Book Title:</strong> <span id="loan-book-title">Book Title</span></p>
-        <p><strong>Available Copies:</strong> <span id="loan-book-available">Available Copies</span></p>
-        <p><strong>Total Copies:</strong> <span id="loan-book-copies">Total Copies</span></p>
-        <button id="reserve-book-btn">Reserve This Book</button>
+        
+        <!-- Dropdown to select a book -->
+        <label for="book-select">Choose a book:</label>
+        <select id="book-select" onchange="loadBookDetails(this.value)">
+            <option value="">--Select a Book--</option>
+            <option value="1">Alice's Adventures in Water-land</option>
+            <option value="2">The Great Gatsby</option>
+            <option value="3">1984</option>
+            <option value="4">Moby Dick</option>
+        </select>
+
+        <!-- Display book details -->
+        <div id="book-details">
+            <p><strong>Book Title:</strong> <span id="loan-book-title">Loading...</span></p>
+            <p><strong>Available Copies:</strong> <span id="loan-book-available">Loading...</span></p>
+            <p><strong>Total Copies:</strong> <span id="loan-book-copies">Loading...</span></p>
+            <button id="reserve-book-btn">Reserve This Book</button>
+        </div>
     </section>
 </main>
 
@@ -39,5 +86,44 @@
 </footer>
 
 <script>
+    // Simulating a collection of books in the library
     const books = [
-        { id: 1, title: "Alice's Adventures in Water-land", author
+        { id: 1, title: "Alice's Adventures in Water-land", author: "Lewis Carroll", totalCopies: 5, availableCopies: 3 },
+        { id: 2, title: "The Great Gatsby", author: "F. Scott Fitzgerald", totalCopies: 4, availableCopies: 2 },
+        { id: 3, title: "1984", author: "George Orwell", totalCopies: 6, availableCopies: 4 },
+        { id: 4, title: "Moby Dick", author: "Herman Melville", totalCopies: 3, availableCopies: 1 }
+    ];
+
+    // Function to load book details dynamically when a book is selected
+    function loadBookDetails(bookId) {
+        if (bookId === "") {
+            document.getElementById('loan-book-title').textContent = "Please select a book to view details.";
+            document.getElementById('loan-book-available').textContent = "";
+            document.getElementById('loan-book-copies').textContent = "";
+            return;
+        }
+
+        const book = books.find(b => b.id === parseInt(bookId));
+        if (book) {
+            document.getElementById('loan-book-title').textContent = book.title;
+            document.getElementById('loan-book-available').textContent = book.availableCopies;
+            document.getElementById('loan-book-copies').textContent = book.totalCopies;
+            document.getElementById('reserve-book-btn').onclick = () => reserveBook(book.id);
+        }
+    }
+
+    // Function to handle book reservation
+    function reserveBook(bookId) {
+        const book = books.find(b => b.id === bookId);
+        if (book && book.availableCopies > 0) {
+            book.availableCopies -= 1;  // Decrease available copies after reservation
+            alert(`You have successfully reserved the book: ${book.title}`);
+            loadBookDetails(bookId);  // Refresh the book details after reservation
+        } else {
+            alert("Sorry, no available copies left to reserve.");
+        }
+    }
+</script>
+
+</body>
+</html>

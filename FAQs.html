@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>FAQs - Vallejo Public Library</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+
+    <!-- Header and navigation for FAQs page -->
+        <nav>
+            <ul class="navbar-container">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="book-catalog.html">Book-Catalog</a></li>
+                <li><a href="loan-system.html">Loan-System</a></li>
+                <li><a href="events&news.html">Event & News</a></li>
+                <li><a href="FAQs.html">FAQs</a></li>
+                <li>
+                    <form action="#" method="GET" class="search-form">
+                        <input type="text" id="searchQuery" placeholder="Search FAQs..." class="search-input" onkeyup="searchFAQ()">
+                        <button type="submit" class="search-button">Search</button>
+                    </form>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main content for FAQs -->
+    <main>
+        <section id="faq">
+            <h2>Frequently Asked Questions (FAQs)</h2>
+            <div class="faq-item">
+                <h3 class="faq-question">How do I borrow a book from Vallejo Public Library?</h3>
+                <p class="faq-answer">To borrow a book, you must have a valid library card. Simply search for the book in our catalog, and follow the instructions to check it out at the circulation desk or via our online system.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3 class="faq-question">What is the late fee for overdue books?</h3>
+                <p class="faq-answer">The late fee for overdue books is $0.25 per day. We recommend returning books on time to avoid any charges.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3 class="faq-question">Can I renew my borrowed books?</h3>
+                <p class="faq-answer">Yes, you can renew your borrowed books online through your library account, or in person at the circulation desk, as long as no one else has placed a hold on the item.</p>
+            </div>
+
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>Contact Us: <a href="mailto:info@vallejolibrary.org">info@vallejolibrary.org</a></p>
+        <p>Vallejo Public Library, 456 Main St, Vallejo, CA 94590</p>
+        <p>Hours: Mon-Fri 9:00 AM - 6:00 PM | Sat 10:00 AM - 4:00 PM</p>
+    </footer>
+
+    <script>
+        // Search function for FAQs
+        function searchFAQ() {
+            const query = document.getElementById('searchQuery').value.toLowerCase();
+            const faqItems = document.querySelectorAll('.faq-item');
+
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question').textContent.toLowerCase();
+                if (question.includes(query)) {
+                    item.style.display = ''; // If it matches, show the FAQ item
+                } else {
+                    item.style.display = 'none'; // If it doesn't match, hide the FAQ item
+                }
+            });
+        }
+    </script>
+
+</body>
+</html>

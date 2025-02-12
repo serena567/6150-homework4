@@ -7,16 +7,15 @@
     <title>Book Catalog & Details - Vallejo Public Library</title>
     <link rel="stylesheet" href="styles/style.css">
 </head>
-<body class="book-catalog-page">
 
-<header>
-    <h1>Vallejo Public Library</h1>
+<body class="book-catalog-page">
     <nav>
         <ul class="navbar-container">
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About Us</a></li>
-            <li><a href="book-catalog.html">Book Catalog</a></li>
-            <li><a href="loan-system.html">Borrowing System</a></li>
+            <li><a href="book-catalog.html">Book-Catalog</a></li>
+            <li><a href="loan-system.html">Loan-System</a></li>
+            <li><a href="events&news.html">Event & News</a></li>
             <li><a href="FAQs.html">FAQs</a></li>
             <!-- 添加搜索框 -->
             <li>
@@ -31,7 +30,7 @@
 
 <main>
     <section id="book-catalog">
-        <h2>Book Catalog</h2>
+    <h2>book-catalog</h2>
 
         <div class="catalog-images">
             <!-- Book 1 -->
@@ -55,15 +54,7 @@
                 <button class="reserve-button" onclick="reserveBook(3)">Reserve</button>
             </div>
         </div>
-        
-
-
-
     
-
-
-
-
         <ul id="book-list">
             <!-- List of books will be rendered here dynamically -->
         </ul>
@@ -102,9 +93,6 @@ function renderBookCatalog(filteredBooks = books) {
 catalogContainer.appendChild(bookItem);
 });
 }
-
-        
-        
         const bookDetailContainer = document.createElement('div');
         bookDetailContainer.id = `book-detail-${book.id}`;
         bookDetailContainer.classList.add('book-detail');
